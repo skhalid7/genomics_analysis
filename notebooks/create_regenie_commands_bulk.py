@@ -4,6 +4,7 @@ import sys
 from datetime import datetime
 import argparse
 import scrapbook as sb
+from src import utils
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--phenotype", "-p", type=str,
@@ -12,6 +13,8 @@ parser.add_argument("--runname", "-r", type=str,
                     help="runname", required = True)
 parser.add_argument("--cohort", "-c", type=str,
                     help="space delimited string of cohorts", required = True)
+parser.add_argument("--configfile", "-cf",
+                    type=str, help="path to config file")
 parser.add_argument("--metafile", "-m",
                     type=str, help="path to metafile", required=False, default="NA")
 
@@ -21,11 +24,11 @@ now = datetime.now()
 dt_string = now.strftime("%Y_%m_%d__%H:%M")
 
 #update paths here 
-#to automate put params in config file
-path_2_notebook = "/home/jupyter/genomics_analysis/notebooks"
-notebook_to_execute = f"{path_2_notebook}/create_regenie_commands.ipynb"
+notebook_paths = utils.get_config_parameter("notebooks", args.configfile)
+notebook_to_execute = notebook_paths["create_regenie_commands"]
+path_2_notebook = "/".join(notebook_to_execute.split("/")[0:-1])
+output_nb_folder = notebook_paths["output_folder"]
 output_notebook = notebook_to_execute.split("/")[-1].split(".ipynb")[0]
-output_nb_folder = f"{path_2_notebook}/notebook_runs"
 
 outnotebook_name = output_nb_folder + "/" + output_notebook + "_" + args.runname + "_" + args.phenotype + "_" + args.cohort + "_" + dt_string + "." + "ipynb"
 
