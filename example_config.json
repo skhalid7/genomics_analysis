@@ -1,0 +1,16 @@
+{
+  "phenotypes_file": "/path/2/phenotype_file_2024_06_10.csv",
+  "notebooks": { 
+	  "output_folder" : "/path/2/notebook_runs",
+	  "create_regenie_commands" : "/path/2/create_regenie_commands.ipynb"
+  },
+  "plink" : {"version" : "", "path" : "/path/2/plink2"},
+  "regenie_defaults" : {
+	  "REGENIE_PATH" : "/path/2/regenie_v3.2.9.gz_x86_64_Linux", "BSIZE":  "2000",
+	  "CASE_CONTROL_IMBALANCE_HANDLE" : "--firth --approx --pThresh 0.05 \\"
+  },
+  "google_sheet" : {"link" : "https://docs.google.com/spreadsheets/d/{}/gviz/tq?tqx=out:csv&sheet={}",
+	  "id" : "1H2ePJPADlkgw1fXXXXX",
+	  "name" : "Regenie_Runs" }
+}
+
