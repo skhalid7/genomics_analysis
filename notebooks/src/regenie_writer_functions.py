@@ -44,7 +44,7 @@ def printRegenieExtractions(file_handle, base_path, bgen_file, vars_to_extract, 
     print("--bsize {} \\".format(bsize), file=file_handle)
 
 def printRegenieStep2(file_handle, base_path, cohort, run_name, output_file, trait_type, model, loco_predictions = "nan",\
-                      anno_file = "nan", set_list = "nan", mask_defs = "nan", aafs = "nan", case_control_imbalance = "--firth --approx --pThresh 0.05 \\"):
+                      anno_file = "nan", set_list = "nan", mask_defs = "nan", aafs = "nan", case_control_imbalance = "--firth --approx --pThresh 0.05"):
     
     '''
     print out step 2 specific commands, if gene burden files will write out gene burden command
